@@ -17,7 +17,7 @@ class FizzBuzzTestKotlin() {
 
 	@Test
 	fun `given 2 return '2'`() {
-		assertThat(FizzBuzz.fizzBuzz(1)).isEqualTo("1")
+		assertThat(FizzBuzz.fizzBuzz(2)).isEqualTo("2")
 	}
 
 	@Test
