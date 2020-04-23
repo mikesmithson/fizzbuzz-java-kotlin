@@ -13,6 +13,6 @@ val buzzStrategy: (Pair<Int, String>) -> Pair<Int, String> = {
 	it.takeUnless(buzzPredicate) ?: Pair(it.first, "${it.second}Buzz")
 }
 
-val identityStrategy: (Pair<Int, String>) -> Pair<Int, String> = { input ->
-	input.takeIf { fizzBuzzPredicate(input) } ?: Pair(input.first, "${input.first}")
+val identityStrategy: (Pair<Int, String>) -> Pair<Int, String> = { 
+	it.takeIf { fizzBuzzPredicate(it) } ?: Pair(it.first, "${it.first}")
 }
