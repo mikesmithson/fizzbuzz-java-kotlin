@@ -6,12 +6,66 @@ package fizzbuzz.java.kotlin;
 import org.junit.jupiter.api.Test;
 
 import static org.hamcrest.MatcherAssert.assertThat;
-import static org.hamcrest.Matchers.greaterThan;
-
+import static org.hamcrest.Matchers.is;
 
 public class FizzBuzzJavaTest {
+	static String fizzBuzz(int number) {
+		StringBuilder result = new StringBuilder();
+		if (number > 0) {
+			if (number % 3 == 0) {
+				result.append("Fizz");
+			}
+			if (number % 5 == 0) {
+				result.append("Buzz");
+			}
+		}
+		return (0 == result.length())
+				? Integer.toString(number)
+				: result.toString();
+	}
+
 	@Test
-	public void does_this_work() {
-		assertThat(System.currentTimeMillis(), greaterThan(0L));
+	public void givenZeroReturnZero() {
+		assertThat(fizzBuzz(0), is("0"));
+	}
+
+	@Test
+	public void givenOneReturnOne() {
+		assertThat(fizzBuzz(1), is("1"));
+	}
+
+	@Test
+	public void givenTwoReturnTwo() {
+		assertThat(fizzBuzz(2), is("2"));
+	}
+
+	@Test
+	public void givenThreeReturnFizz() {
+		assertThat(fizzBuzz(3), is("Fizz"));
+	}
+
+	@Test
+	public void givenFourReturnFour() {
+		assertThat(fizzBuzz(4), is("4"));
+	}
+
+	@Test
+	public void givenFiveReturnBuzz() {
+		assertThat(fizzBuzz(5), is("Buzz"));
+	}
+
+	@Test
+	public void givenSixReturnFizz() {
+		assertThat(fizzBuzz(6), is("Fizz"));
+	}
+
+	@Test
+	public void givenTenReturnBuzz() {
+		assertThat(fizzBuzz(10), is("Buzz"));
+	}
+
+	@Test
+	public void givenFifteenReturnFizzBuzz() {
+		assertThat(fizzBuzz(15), is("FizzBuzz"));
 	}
 }
